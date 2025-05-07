@@ -1,12 +1,3 @@
 #!/usr/bin/python3
-i = 97
-while i != 123:
 
-    if i == 113 or i == 101:
-
-        i += 1
-
-    else:
-
-        print(chr(i), end="")
-        i += 1
+print("".join("{}".format(chr(i)) for i in range(97, 123)if chr(i) != "e" and chr(i) != "q"), end="")
