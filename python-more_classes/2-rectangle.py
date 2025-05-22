@@ -10,7 +10,7 @@ to rectangle.
 
 class Rectangle:
 
-    """This class represents a recatangle.
+    """This class represents a rectangle.
 
     Currently, it serves as a placeholder and does not implement
     any attributes
@@ -56,4 +56,6 @@ class Rectangle:
 
     def perimeter(self):
         """perimeter = height * 2 + width * 2"""
+        if self.__width == 0 or self.__height == 0:
+            return 0
         return (self.__height * 2) + (self.__width * 2)
