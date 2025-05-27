@@ -23,7 +23,9 @@ class BaseGeometry:
 
 class Rectangle(BaseGeometry):
 
-    """Recatangle is class who heritance from basegeometry class"""
+    """Rectangle is a class that inherits from BaseGeometry.
+    It represents a rectangle defined by width and height."""
+
     def __init__(self, width, height):
         """Instantiation with width and height"""
         self.integer_validator("width", width)
