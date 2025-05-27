@@ -1,55 +1,68 @@
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
 
-# ✅ Cas valides
->>> bg.integer_validator("age", 1)
->>> bg.integer_validator("width", 9999)
->>> bg.integer_validator("length", 42)
+# === ✅ CAS VALIDES ===
 
-# ❌ Cas : valeur == 0 (doit lever ValueError)
+>>> bg.integer_validator("age", 1)
+>>> bg.integer_validator("width", 999999999999999)  # grand entier
+
+# === ❌ CAS D’ERREURS TYPE ET VALEUR ===
+
 >>> bg.integer_validator("size", 0)
 Traceback (most recent call last):
 ...
 ValueError: size must be greater than 0
 
-# ❌ Cas : valeur négative
 >>> bg.integer_validator("age", -5)
 Traceback (most recent call last):
 ...
 ValueError: age must be greater than 0
 
-# ❌ Cas : chaîne de caractères
 >>> bg.integer_validator("height", "10")
 Traceback (most recent call last):
 ...
 TypeError: height must be an integer
 
-# ❌ Cas : float
 >>> bg.integer_validator("thickness", 3.14)
 Traceback (most recent call last):
 ...
 TypeError: thickness must be an integer
 
-# ❌ Cas : booléen (bool hérite de int, mais ce n’est pas accepté ici)
 >>> bg.integer_validator("active", True)
 Traceback (most recent call last):
 ...
 TypeError: active must be an integer
 
-# ❌ Cas : liste
 >>> bg.integer_validator("items", [1, 2, 3])
 Traceback (most recent call last):
 ...
 TypeError: items must be an integer
 
-# ❌ Cas : dictionnaire
 >>> bg.integer_validator("config", {"key": "value"})
 Traceback (most recent call last):
 ...
 TypeError: config must be an integer
 
-# ❌ Cas : None
 >>> bg.integer_validator("data", None)
 Traceback (most recent call last):
 ...
 TypeError: data must be an integer
+
+# name avec caractères spéciaux
+>>> bg.integer_validator("t@il#$", 4)
+
+# name vide
+>>> bg.integer_validator("", 8)
+
+# float explicite mais valide visuellement (doit échouer)
+>>> bg.integer_validator("salary", float("5"))
+Traceback (most recent call last):
+...
+TypeError: salary must be an integer
+
+# objet personnalisé
+>>> class Dummy: pass
+>>> bg.integer_validator("dummy", Dummy())
+Traceback (most recent call last):
+...
+TypeError: dummy must be an integer
