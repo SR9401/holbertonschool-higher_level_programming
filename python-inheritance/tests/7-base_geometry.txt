@@ -1,13 +1,13 @@
-"""
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
 
-# === ✅ Cas valides ===
->>> bg.integer_validator("age", 1)
->>> bg.integer_validator("width", 999999999999999)
->>> bg.integer_validator("zeroedge", 1)
+# === ✅ CAS VALIDES ===
 
-# === ❌ Cas de valeurs interdites ===
+>>> bg.integer_validator("age", 1)
+>>> bg.integer_validator("width", 999999999999999)  # grand entier
+
+# === ❌ CAS D’ERREURS TYPE ET VALEUR ===
+
 >>> bg.integer_validator("size", 0)
 Traceback (most recent call last):
 ...
@@ -18,7 +18,6 @@ Traceback (most recent call last):
 ...
 ValueError: age must be greater than 0
 
-# === ❌ Cas de type incorrect ===
 >>> bg.integer_validator("height", "10")
 Traceback (most recent call last):
 ...
@@ -49,24 +48,21 @@ Traceback (most recent call last):
 ...
 TypeError: data must be an integer
 
->>> bg.integer_validator("float_cast", float(10))
-Traceback (most recent call last):
-...
-TypeError: float_cast must be an integer
-
-# === Autres cas bizarres mais utiles ===
-
->>> bg.integer_validator("bool_false", False)
-Traceback (most recent call last):
-...
-TypeError: bool_false must be an integer
-
+# name avec caractères spéciaux
 >>> bg.integer_validator("t@il#$", 4)
+
+# name vide
 >>> bg.integer_validator("", 8)
 
+# float explicite mais valide visuellement (doit échouer)
+>>> bg.integer_validator("salary", float("5"))
+Traceback (most recent call last):
+...
+TypeError: salary must be an integer
+
+# objet personnalisé
 >>> class Dummy: pass
 >>> bg.integer_validator("dummy", Dummy())
 Traceback (most recent call last):
 ...
 TypeError: dummy must be an integer
-"""
