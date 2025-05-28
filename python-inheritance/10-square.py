@@ -46,6 +46,8 @@ class Rectangle(BaseGeometry):
 
 class Square(Rectangle):
 
+    """Rectangle is a class that inherits from BaseGeometry.
+    It represents a rectangle defined by width and height."""
     def __init__(self, size):
         """Instantiation with size"""
         self.integer_validator("size", size)
