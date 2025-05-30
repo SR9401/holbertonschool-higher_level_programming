@@ -2,7 +2,7 @@
 """Abstract Base Classes (ABCs)"""
 
 from abc import ABC, abstractmethod
-from math import *
+from math import pi
 
 
 class Shape(ABC):
