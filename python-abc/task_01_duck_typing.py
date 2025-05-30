@@ -2,7 +2,7 @@
 """Abstract Base Classes (ABCs)"""
 
 from abc import ABC, abstractmethod
-from math import pi
+from math import *
 
 
 class Shape(ABC):
@@ -26,7 +26,7 @@ class Circle(Shape):
 
     def perimeter(self):
         """Return the perimeter of the circle (2 * π * radius)"""
-        return 2 * pi * self.radius
+        return abs(2 * pi * self.radius)
 
     def area(self):
         """Return the area of the circle (π * radius^2)"""
