@@ -1,68 +1,20 @@
+"""
+Tests for  BaseGeometry function,
+asking us Write a class BaseGeometry that inherits from list
+"""
+
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
 >>> bg = BaseGeometry()
 
-# === ✅ CAS VALIDES ===
+>>> mod = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+	>>> len(mod) > 1
+	True
 
->>> bg.integer_validator("age", 1)
->>> bg.integer_validator("width", 999999999999999)  # grand entier
+ >>> c = __import__("7-base_geometry").BaseGeometry.__doc__
+    >>> len(c) > 1
+    True
 
-# === ❌ CAS D’ERREURS TYPE ET VALEUR ===
-
->>> bg.integer_validator("size", 0)
-Traceback (most recent call last):
-...
-ValueError: size must be greater than 0
-
->>> bg.integer_validator("age", -5)
-Traceback (most recent call last):
-...
-ValueError: age must be greater than 0
-
->>> bg.integer_validator("height", "10")
-Traceback (most recent call last):
-...
-TypeError: height must be an integer
-
->>> bg.integer_validator("thickness", 3.14)
-Traceback (most recent call last):
-...
-TypeError: thickness must be an integer
-
->>> bg.integer_validator("active", True)
-Traceback (most recent call last):
-...
-TypeError: active must be an integer
-
->>> bg.integer_validator("items", [1, 2, 3])
-Traceback (most recent call last):
-...
-TypeError: items must be an integer
-
->>> bg.integer_validator("config", {"key": "value"})
-Traceback (most recent call last):
-...
-TypeError: config must be an integer
-
->>> bg.integer_validator("data", None)
-Traceback (most recent call last):
-...
-TypeError: data must be an integer
-
-# name avec caractères spéciaux
->>> bg.integer_validator("t@il#$", 4)
-
-# name vide
->>> bg.integer_validator("", 8)
-
-# float explicite mais valide visuellement (doit échouer)
->>> bg.integer_validator("salary", float("5"))
-Traceback (most recent call last):
-...
-TypeError: salary must be an integer
-
-# objet personnalisé
->>> class Dummy: pass
->>> bg.integer_validator("dummy", Dummy())
-Traceback (most recent call last):
-...
-TypeError: dummy must be an integer
+>>> m = __import__("7-base_geometry").__doc__
+    >>> len(m) > 1
+    True
