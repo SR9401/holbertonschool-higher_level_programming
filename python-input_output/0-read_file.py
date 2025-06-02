@@ -3,7 +3,8 @@
 
 
 def read_file(filename=""):
-    """Ouvre le fichier en mode lecture ("r"), automatiquement fermé après le bloc"""
+    """Ouvre le fichier en mode lecture ("r"),
+    automatiquement fermé après le bloc"""
 
     with open(filename, "r") as file:
         contents = file.read()
