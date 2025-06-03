@@ -18,7 +18,7 @@ args = sys.argv[1:]
 # Tentative de chargement du contenu existant dans le fichier
 try:
     existing_data = load_from_json_file(filename)
-except FileNotFoundError:
+except Exception:
     # Si le fichier n'existe pas encore, on commence avec une liste vide
     existing_data = []
 
