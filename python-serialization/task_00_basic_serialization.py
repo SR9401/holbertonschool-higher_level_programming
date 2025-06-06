@@ -1,9 +1,9 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """basic serialization module that adds the functionality
 to serialize a Python dictionary to a JSON file and
 deserialize the JSON file to recreate the Python Dictionary"""
-import pickle
 
+import pickle
 
 def serialize_and_save_to_file(data, filename):
     """to serialize
