@@ -2,6 +2,7 @@
 
 import pickle
 
+
 class CustomObject:
     """"""
 
@@ -9,7 +10,7 @@ class CustomObject:
         self.name = name
         self.age = age
         self.is_student = is_student
-    
+
     def display(self):
         print("Name: {}".format(self.name))
         print("Age: {}".format(self.age))
