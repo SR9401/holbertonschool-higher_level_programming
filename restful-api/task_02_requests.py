@@ -35,7 +35,6 @@ def fetch_and_save_posts():
                 filtered_posts = {key: post[key] for key in fieldnames}
                 writer.writerow(filtered_posts)
 
-        """print("Données sauvegardées dans posts.csv")
+        print("Données sauvegardées dans posts.csv")
     else:
         print("Erreur lors de la requête : {r.status_code}")
-        """
