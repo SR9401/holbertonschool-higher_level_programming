@@ -1,10 +1,12 @@
 #!/usr/bin/python3
+"""Consuming and processing data from an API using Python"""
 
 import requests
 import csv
 
 
 def fetch_and_print_posts():
+    """fetches all post from JSONPlaceholder."""
 
     r = requests.get("https://jsonplaceholder.typicode.com/posts")
     print("Status Code: {}".format(r.status_code))
@@ -16,6 +18,7 @@ def fetch_and_print_posts():
 
 
 def fetch_and_save_posts():
+    """fetches all post from JSONPlaceholder."""
 
     r = requests.get("https://jsonplaceholder.typicode.com/posts")
 
@@ -31,6 +34,7 @@ def fetch_and_save_posts():
             for post in posts:
                 filtered_posts = {key: post[key] for key in fieldnames}
                 writer.writerow(filtered_posts)
+
         """print("Données sauvegardées dans posts.csv")
     else:
         print("Erreur lors de la requête : {r.status_code}")
