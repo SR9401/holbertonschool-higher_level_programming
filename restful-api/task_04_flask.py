@@ -42,14 +42,16 @@ def get_username(username):
 
 @app.route("/add_user", methods=["POST"])
 def add_user():
-    r = request.get_json()
-    u = r.get("username")
+    """Create a new route /add_user that accepts POST requests."""
 
-    if not u:
+    r = request.get_json()
+    username = r.get("username")
+
+    if not username:
 
         return jsonify({"error": "Username is required"}), 400
-
-    users[u] = r
+    else:
+        users[username] = r
 
 
 if __name__ == "__main__":
