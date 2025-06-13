@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Develop a Simple API using Python with Flask"""
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -38,6 +38,17 @@ def get_username(username):
         return jsonify(users[username])
     else:
         return jsonify({"error": "User not found"}), 404
+
+@app.route("/add_user", methods=["POST"])
+def add_user():
+    r = request.get_json()
+    u = r.get("username")
+
+    if not u:
+
+        return jsonify({"error": "Username is required"}), 400
+
+    users[u] = r
 
 
 if __name__ == "__main__":
