@@ -52,6 +52,8 @@ def add_user():
         return jsonify({"error": "Username is required"}), 400
     else:
         users[username] = r
+        return jsonify({"message": "User added", "user": r}), 201
+
 
 
 if __name__ == "__main__":
