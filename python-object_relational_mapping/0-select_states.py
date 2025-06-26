@@ -8,7 +8,7 @@ import sys
 
 if __name__ == "__main__":
     """
-    connects at database 
+    connects at database
     """
     db = MySQLdb.connect(
         host="localhost",
