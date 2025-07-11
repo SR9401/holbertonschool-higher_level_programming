@@ -1,10 +1,16 @@
 #!/usr/bin/node
 
-const arg = process.argv[2];
-const number = parseInt(arg);
-
-if (isNaN(number)) {
-  console.log('Not a number');
+const args = process.argv.slice(2);
+if (args.length === 0) {
+    console.log('Not a number');
 } else {
-  console.log('My number:', number);
+    const arg = args[0];
+    const numRegex = /^\s*[+-]?(\d+\.?\d*|\.\d+)\s*$/;
+    if (numRegex.test(arg)) {
+        const num = parseFloat(arg);
+        const intNum = Math.trunc(num);
+        console.log(`My number: ${intNum}`);
+    } else {
+        console.log('Not a number');
+    }
 }
