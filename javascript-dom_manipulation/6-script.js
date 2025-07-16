@@ -10,4 +10,8 @@ const url = 'https://swapi-api.hbtn.io/api/people/5/?format=json';
             .then(data => {
                 const characterName = data.name;
                 document.getElementById('character').textContent = characterName;
-			});
+            })
+            .catch(error => {
+                // Gérer les erreurs éventuelles
+                console.error('There was a problem with the fetch operation:', error);
+            });
