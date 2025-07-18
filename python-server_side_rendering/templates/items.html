@@ -8,16 +8,17 @@
 		{% include 'header.html' %}
        <h1>Items List</h1>
 	   <p>describing the page.</p>
-		{% include 'footer.html' %}
-		<ul>
-			{% for item in items %}
-				{% if item is None%}
-					<li>No items found</li>
-				{% else %}
-					<li>"{{item}}"</li>
-				{% endif %}
-			{% endfor %}
-		</ul>
+
+    <ul>
+        {% for item in items %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    {% if items|length == 0 %}
+        <p>No items found</p>
+    {% endif %}
+	{% include 'footer.html' %}
+		
 		
    </body>
    </html>
