@@ -12,9 +12,10 @@
 		<ul>
 			{% for item in items %}
 				{% if item is None%}
-					No items found
+					<li>No items found</li>
+				{% else %}
+					<li>"{{item}}"</li>
 				{% endif %}
-				<li>"{{item}}"</li>
 			{% endfor %}
 		</ul>
 		
