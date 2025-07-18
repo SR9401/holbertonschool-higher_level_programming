@@ -1,1 +1,24 @@
-{% for %}{% if %}
+   <!doctype html>
+   <html lang="en">
+   <head>
+       <title>Items List</title>
+   </head>
+   <body>
+	
+		{% include 'header.html' %}
+       <h1>Items List</h1>
+	   <p>describing the page.</p>
+		{% include 'footer.html' %}
+		<ul>
+			{% for item in items %}
+				{% if item is None%}
+					No items found
+				{% endif %}
+				<li>"{{item}}"</li>
+			{% endfor %}
+		</ul>
+		
+   </body>
+   </html>
+
+
