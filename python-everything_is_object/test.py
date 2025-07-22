@@ -1,3 +1,3 @@
-a = (1, 2)
-b = (1, 2)
-a is b
+s1 = "Best School"
+s2 = "Best School"
+print(s1 is s2)
